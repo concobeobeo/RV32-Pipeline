@@ -105,11 +105,11 @@ module decoder(
 			// Neu rs1 = rd lenh ke truoc thi opA là feedback tu tang MEM
 			if (instr[19:15]/*rs1*/ == last_rd)
 			begin 
-				branch_dharzard = 1;
+				branch_dhazard = 1;
 			end
 			else if (instr[24:20]/*rs2*/ == last_rd) 
 			begin
-				branch_dharzard = 2;
+				branch_dhazard = 2;
 			end
 			// Neu rs1 hoac rs2 = rd lenh truoc 1 thi opA là feedback tu tang WB
 			/*else if (instr[19:15] == penul_rd)

@@ -47,14 +47,6 @@ Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
 Top level modules:
 	ImmGen
 
-} {} {}} {C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/decoder.v} {2 {vlog -work work -vopt -stats=none {C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/decoder.v}
-Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
--- Compiling module decoder
-** Warning: C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/decoder.v(106): (vlog-2182) 'last_rd' might be read before written in always_comb or always @* block.
-
-Top level modules:
-	decoder
-
 } {} {}} {C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/IMEM/IMEM.v} {1 {vlog -work work -vopt -stats=none {C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/IMEM/IMEM.v}
 Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
 -- Compiling module IMEM

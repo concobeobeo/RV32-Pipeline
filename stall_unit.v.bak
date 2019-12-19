@@ -25,12 +25,12 @@ if (stall_j == 1) begin
 	last_state = stall_state;
 	stall_state = 1;	
 end
-else begin
+/*else begin
 	ff_stop_update = 0;
 	pc_stop_update = 0;
 	last_state = stall_state;
 	stall_state = 0;	
-end
+end */
 if (last_state && stall_state) begin 
 	ff_stop_update = 0;
 	pc_stop_update = 0;

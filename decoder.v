@@ -103,11 +103,11 @@ module decoder(
 		if (instr[6:2] == 5'b11000)
 		begin
 			// Neu rs1 = rd lenh ke truoc thi opA là feedback tu tang MEM
-			if (instr[19:15]/*rs1*/ == last_rd)
+			if (instr[19:15]/*rs1*/ == last_rd && last_rd != 0)
 			begin 
 				branch_dhazard = 1;
 			end
-			else if (instr[24:20]/*rs2*/ == last_rd) 
+			else if (instr[24:20]/*rs2*/ == last_rd && last_rd != 0) 
 			begin
 				branch_dhazard = 2;
 			end
@@ -135,33 +135,33 @@ module decoder(
 		if (instr[6:2] == 5'b01000)
 		begin
 			// Neu rs1 = rd lenh ke truoc thi opA là feedback tu tang MEM
-			if (instr[19:15]/*rs1*/ == last_rd)
+			if (instr[19:15]/*rs1*/ == last_rd && last_rd != 0)
 			begin 
 				opA = 2'b10;
 				opB = 2'b01;
 			end
-			else if (instr[24:20]/*rs2*/ == last_rd) 
+			else if (instr[24:20]/*rs2*/ == last_rd && last_rd != 0) 
 			begin
 				opA = 2'b00;
 				opB = 2'b10;
 			end
 			// Neu rs1 hoac rs2 = rd lenh truoc 1 thi opA là feedback tu tang WB
-			else if (instr[19:15]/*rs1*/ == penul_rd)
+			else if (instr[19:15]/*rs1*/ == penul_rd && penul_rd != 0)
 			begin 
 				opA = 2'b11;
 				opB = 2'b01;
 			end
-			else if (instr[24:20]/*rs2*/ == penul_rd) 
+			else if (instr[24:20]/*rs2*/ == penul_rd && penul_rd != 0) 
 			begin
 				opA = 2'b00;
 				opB = 2'b11;
 			end
-			else if (instr[19:15]/*rs1*/ == last_rd && instr[24:20]/*rs2*/ == penul_rd)
+			else if (instr[19:15]/*rs1*/ == last_rd && instr[24:20]/*rs2*/ == penul_rd && penul_rd != 0 && last_rd != 0)
 			begin
 				opA = 2'b10;
 				opB = 2'b11;
 			end
-			else if (instr[19:15]/*rs1*/ == penul_rd && instr[24:20]/*rs2*/ == last_rd)
+			else if (instr[19:15]/*rs1*/ == penul_rd && instr[24:20]/*rs2*/ == last_rd && penul_rd != 0 && last_rd != 0)
 			begin
 				opA = 2'b11;
 				opB = 2'b10;
@@ -181,33 +181,33 @@ module decoder(
 		else if (instr[6:2] == 5'b01100)
 		begin 
 			// Neu rs1 hoac rs2 = rd lenh ke truoc thi opA là feedback tu tang MEM
-			if (instr[19:15]/*rs1*/ == last_rd)
+			if (instr[19:15]/*rs1*/ == last_rd && last_rd != 0)
 			begin 
 				opA = 2'b10;
 				opB = 2'b00;
 			end
-			else if (instr[24:20]/*rs2*/ == last_rd)
+			else if (instr[24:20]/*rs2*/ == last_rd && last_rd != 0)
 			begin
 				opA = 2'b00;
 				opB = 2'b10;
 			end
 			// Neu rs1 hoac rs2 = rd lenh truoc 1 thi opA là feedback tu tang WB
-			else if (instr[19:15]/*rs1*/ == penul_rd)
+			else if (instr[19:15]/*rs1*/ == penul_rd && penul_rd != 0)
 			begin 
 				opA = 2'b11;
 				opB = 2'b00;
 			end
-			else if (instr[24:20]/*rs2*/ == penul_rd)
+			else if (instr[24:20]/*rs2*/ == penul_rd && penul_rd != 0)
 			begin
 				opA = 2'b00;
 				opB = 2'b11;
 			end
-			else if (instr[19:15]/*rs1*/ == last_rd && instr[24:20]/*rs2*/ == penul_rd)
+			else if (instr[19:15]/*rs1*/ == last_rd && instr[24:20]/*rs2*/ == penul_rd && penul_rd != 0 && last_rd != 0)
 			begin
 				opA = 2'b10;
 				opB = 2'b11;
 			end
-			else if (instr[19:15]/*rs1*/ == penul_rd && instr[24:20]/*rs2*/ == last_rd)
+			else if (instr[19:15]/*rs1*/ == penul_rd && instr[24:20]/*rs2*/ == last_rd && penul_rd != 0 && last_rd != 0)
 			begin
 				opA = 2'b11;
 				opB = 2'b10;
@@ -226,14 +226,14 @@ module decoder(
 		else if (instr[6:2] == 5'b00000 /*LW*/ || instr[6:2] == 5'b00100 /*IMM*/|| instr[6:2] ==5'b11001 /*JALR*/)
 		begin
 			// Neu rs1 hoac rs1 = rd lenh ke truoc thi opA là feedback tu tang MEM
-			if (instr[19:15]/*rs1*/ == last_rd)
+			if (instr[19:15]/*rs1*/ == last_rd && last_rd != 0)
 			begin 
 				opA = 2'b10;
 				opB = 2'b01;
 				if (instr[6:2] == 5'b00000) stall = 1;
 			end
 			// Neu rs1 hoac rs1 = rd lenh truoc 1 thi opA là feedback tu tang WB
-			else if (instr[19:15]/*rs1*/ == penul_rd)
+			else if (instr[19:15]/*rs1*/ == penul_rd && penul_rd != 0)
 			begin
 				opA = 2'b11;
 				opB = 2'b01;
