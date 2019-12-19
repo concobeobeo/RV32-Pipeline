@@ -40,6 +40,13 @@ Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
 Top level modules:
 	opt_mux
 
+} {} {}} {C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/branch_unit.v} {1 {vlog -work work -vopt -stats=none {C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/branch_unit.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module branch_unit
+
+Top level modules:
+	branch_unit
+
 } {} {}} {C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/ImmGen.v} {1 {vlog -work work -vopt -stats=none {C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/ImmGen.v}
 Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
 -- Compiling module ImmGen
@@ -68,13 +75,6 @@ Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
 Top level modules:
 	DMEM
 
-} {} {}} {C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/pc_mux.v} {1 {vlog -work work -vopt -stats=none {C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/pc_mux.v}
-Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
--- Compiling module pc_mux
-
-Top level modules:
-	pc_mux
-
 } {} {}} {C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/jump_control.v} {1 {vlog -work work -vopt -stats=none {C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/jump_control.v}
 Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
 -- Compiling module jump_control
@@ -82,12 +82,26 @@ Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
 Top level modules:
 	jump_control
 
+} {} {}} {C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/pc_mux.v} {1 {vlog -work work -vopt -stats=none {C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/pc_mux.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module pc_mux
+
+Top level modules:
+	pc_mux
+
 } {} {}} {C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/add_4.v} {1 {vlog -work work -vopt -stats=none {C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/add_4.v}
 Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
 -- Compiling module add_4
 
 Top level modules:
 	add_4
+
+} {} {}} {C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/stall_unit.v} {1 {vlog -work work -vopt -stats=none {C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/stall_unit.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module stall_handle_unit
+
+Top level modules:
+	stall_handle_unit
 
 } {} {}} {C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/top_module.v} {1 {vlog -work work -vopt -stats=none {C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/top_module.v}
 Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016

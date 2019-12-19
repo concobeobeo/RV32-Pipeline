@@ -1,6 +1,7 @@
 module decoder(
 	input [31:0] instr,
 	output reg stall,
+	output reg [1:0] sw_sel,
 	output reg [1:0] branch_dhazard,
 	output reg [1:0] opA,
 	output reg [1:0] opB,
@@ -15,7 +16,7 @@ module decoder(
 	
 	reg [4:0] last_rd = 5'bxxxxx;	//buffer cho 2 lenh gan nhat, phuc vu data hazard detect
 	reg [4:0] penul_rd = 5'bxxxxx; 	// last of last
-
+	reg lw;
 	// Define control words 
 	// R type instructions
 	parameter ADD 	= 9'b000001100;
@@ -97,11 +98,13 @@ module decoder(
 		AUIPC:	data_out = 11'b01110000001; 
 		default:data_out = 11'bxxxxxxxxxxx;
 		endcase
-
+		
 		// Co rs1, rs2
 		// Nhom lenh Branch
-		if (instr[6:2] == 5'b11000)
+		case (instr[6:2])
+		5'b11000:
 		begin
+			penul_rd = last_rd;
 			// Neu rs1 = rd lenh ke truoc thi opA là feedback tu tang MEM
 			if (instr[19:15]/*rs1*/ == last_rd && last_rd != 0)
 			begin 
@@ -127,69 +130,79 @@ module decoder(
 				branch_dhazard = 0;
 			end
 			// cap nhat buffer
+			opA = 1;
+			opB = 1;
 			last_rd = 5'bxxxxx;
-			penul_rd = 5'bxxxxx;
 			stall = 0;
+			sw_sel = 0;
 		end
-		// Lenh SW
-		if (instr[6:2] == 5'b01000)
+		5'b01000: //SW
 		begin
 			// Neu rs1 = rd lenh ke truoc thi opA là feedback tu tang MEM
 			if (instr[19:15]/*rs1*/ == last_rd && last_rd != 0)
 			begin 
 				opA = 2'b10;
 				opB = 2'b01;
+				sw_sel = 0;
 			end
 			else if (instr[24:20]/*rs2*/ == last_rd && last_rd != 0) 
 			begin
 				opA = 2'b00;
-				opB = 2'b10;
+				opB = 2'b01;
+				sw_sel = 1; // Neu rs2 hazard thi chon rs2_mux la feedback tu alu_outE
 			end
 			// Neu rs1 hoac rs2 = rd lenh truoc 1 thi opA là feedback tu tang WB
 			else if (instr[19:15]/*rs1*/ == penul_rd && penul_rd != 0)
 			begin 
 				opA = 2'b11;
 				opB = 2'b01;
+				sw_sel = 0;
 			end
 			else if (instr[24:20]/*rs2*/ == penul_rd && penul_rd != 0) 
 			begin
 				opA = 2'b00;
-				opB = 2'b11;
+				opB = 2'b01;
+				sw_sel = 2;
 			end
 			else if (instr[19:15]/*rs1*/ == last_rd && instr[24:20]/*rs2*/ == penul_rd && penul_rd != 0 && last_rd != 0)
 			begin
 				opA = 2'b10;
-				opB = 2'b11;
+				opB = 2'b01;
+				sw_sel = 2;
 			end
 			else if (instr[19:15]/*rs1*/ == penul_rd && instr[24:20]/*rs2*/ == last_rd && penul_rd != 0 && last_rd != 0)
 			begin
 				opA = 2'b11;
-				opB = 2'b10;
+				opB = 2'b01;
+				sw_sel = 1;
 			end
 			else 
 			begin
 				opA = 2'b00;
 				opB = 2'b01;
+				sw_sel = 0;
 			end
 			// cap nhat buffer
-			last_rd = 5'bxxxxx;
-			penul_rd = 5'bxxxxx;
+			penul_rd = last_rd;
+			last_rd = 5'bxxxxx;	
 			stall = 0;
 		end
 		//-----------------
 		// Co rs1, rs2, rd . Nhom lenh R và 
-		else if (instr[6:2] == 5'b01100)
+		5'b01100:
 		begin 
 			// Neu rs1 hoac rs2 = rd lenh ke truoc thi opA là feedback tu tang MEM
 			if (instr[19:15]/*rs1*/ == last_rd && last_rd != 0)
 			begin 
 				opA = 2'b10;
 				opB = 2'b00;
+				
 			end
 			else if (instr[24:20]/*rs2*/ == last_rd && last_rd != 0)
 			begin
 				opA = 2'b00;
 				opB = 2'b10;
+		
 			end
 			// Neu rs1 hoac rs2 = rd lenh truoc 1 thi opA là feedback tu tang WB
 			else if (instr[19:15]/*rs1*/ == penul_rd && penul_rd != 0)
@@ -206,6 +219,7 @@ module decoder(
 			begin
 				opA = 2'b10;
 				opB = 2'b11;
+
 			end
 			else if (instr[19:15]/*rs1*/ == penul_rd && instr[24:20]/*rs2*/ == last_rd && penul_rd != 0 && last_rd != 0)
 			begin
@@ -221,16 +235,17 @@ module decoder(
 			penul_rd = last_rd;
 			last_rd = instr[11:7];
 			stall = 0;
+			sw_sel = 0;
 		end 
 		// co rs1, rd 
-		else if (instr[6:2] == 5'b00000 /*LW*/ || instr[6:2] == 5'b00100 /*IMM*/|| instr[6:2] ==5'b11001 /*JALR*/)
+		5'b00000 /*LW*/ , 5'b00100 /*IMM*/,5'b11001 /*JALR*/:
 		begin
 			// Neu rs1 hoac rs1 = rd lenh ke truoc thi opA là feedback tu tang MEM
 			if (instr[19:15]/*rs1*/ == last_rd && last_rd != 0)
 			begin 
 				opA = 2'b10;
 				opB = 2'b01;
-				if (instr[6:2] == 5'b00000) stall = 1;
+				if (instr[6:2] == 5'b00000) lw = 1;
 			end
 			// Neu rs1 hoac rs1 = rd lenh truoc 1 thi opA là feedback tu tang WB
 			else if (instr[19:15]/*rs1*/ == penul_rd && penul_rd != 0)
@@ -248,14 +263,18 @@ module decoder(
 			// cap nhat buffer
 			penul_rd = last_rd;
 			last_rd = instr[11:7];
+			sw_sel = 0;
 		end
-		else begin
+		default
+		begin
 			opA = 2'b01;
 			opB = 2'b01;
 			// cap nhat buffer
 			penul_rd = last_rd;
 			last_rd = instr[11:7];
 			stall = 0;
+			sw_sel = 0;
 		end
-	end
+	endcase
+end
 endmodule 

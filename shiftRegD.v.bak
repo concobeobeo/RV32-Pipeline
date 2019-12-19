@@ -58,7 +58,7 @@ else begin
 	outMemRW = memRW;
 	outImm = imm;
 	outALUsel = ALUsel;
-	outBranch_dhazardv= branch_dhazard;
+	outBranch_dhazard = branch_dhazard;
 end
 end
 

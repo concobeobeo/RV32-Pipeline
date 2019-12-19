@@ -3,6 +3,7 @@ input [31:0] instr,
 input [31:0] pc,
 input [31:0] rs1,
 input [31:0] rs2,
+input [31:0] rs2_mem,
 input [31:0] imm,
 input [1:0] opA,
 input [1:0] opB,
@@ -19,6 +20,7 @@ output reg [31:0] outPC,
 output reg [3:0] outALUsel,
 output reg [31:0] outRs1,
 output reg [31:0] outRs2,
+output reg [31:0] outRs2_mem,
 output reg [1:0] outOpA,
 output reg [1:0] outOpB,
 output reg [1:0] outWBsel,
@@ -41,6 +43,7 @@ if (clear) begin
 	outWBsel = 0;
 	outRegWEn = 0;
 	outALUsel = 0;
+	outRs2_mem = 0;
 	outMemRW = 0;
 	outImm = 0;
 	outBranch_dhazard = 0;
@@ -55,6 +58,7 @@ else begin
 	outOpB = opB;
 	outWBsel = WBsel;
 	outRegWEn = RegWEn;
+	outRs2_mem = rs2_mem;
 	outMemRW = memRW;
 	outImm = imm;
 	outALUsel = ALUsel;
