@@ -1,0 +1,13 @@
+// PC mux, A_mux, B_mux module
+module pc_mux(out,in0, in1, in2, miss_predict, jmp_sel);
+output reg[31:0]out;
+input [31:0] in0,in1,in2;
+input jmp_sel, miss_predict;
+always @(*)
+if (miss_predict && jmp_sel) out = in1;
+else begin
+	if (miss_predict) out = in1; // do uu tien cua miss predict
+	else if (jmp_sel) out = in2;
+	else out = in0;
+end
+endmodule

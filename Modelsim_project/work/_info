@@ -1,0 +1,490 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/modeltech64_10.5/examples
+T_opt
+!s110 1576734165
+Veo8^8VSO2@1hWkZf7JB:e3
+04 9 4 work testbench fast 0
+=1-a81e8417cebd-5dfb0dd4-39d-fa8
+o-quiet -auto_acc_if_foreign -work work +acc
+Z1 tCvgOpt 0
+n@_opt
+OL;O;10.5;63
+R0
+vadd_4
+Z2 !s110 1576736430
+!i10b 1
+!s100 3LMYmTa1YkF7Lg48mllkM0
+Icl5DeHCHdI9bNZE?]ClcP3
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+Z4 dC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/Modelsim_project
+w1573374785
+8C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/add_4.v
+FC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/add_4.v
+L0 2
+Z5 OL;L;10.5;63
+r1
+!s85 0
+31
+Z6 !s108 1576736430.000000
+!s107 C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/add_4.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/add_4.v|
+!i113 0
+Z7 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vALU
+R2
+!i10b 1
+!s100 LVi=BkRa4LN0h_G80>TVd1
+Io?m3?NAkZHzgcPlSm7f4N2
+R3
+R4
+w1573381065
+8C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/ALU.v
+FC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/ALU.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/ALU.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/ALU.v|
+!i113 0
+R7
+R1
+n@a@l@u
+vbranch_unit
+R2
+!i10b 1
+!s100 hDHLnBNlQ[k?nTG_F9gA02
+IR]1QmQlVNU@IzN1HB4o8i2
+R3
+R4
+w1576734148
+8C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/branch_unit.v
+FC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/branch_unit.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/branch_unit.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/branch_unit.v|
+!i113 0
+R7
+R1
+vBranchComp
+!i10b 1
+R3
+r1
+!s85 0
+31
+!s100 ^f<;LEW_EzUiXbK^`oBWn1
+IL;N:DIz?358eGinfddZhc2
+R4
+w1574267496
+8C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/BrComp.v
+FC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/BrComp.v
+L0 1
+R5
+!s108 1576139279.000000
+!s107 C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/BrComp.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/BrComp.v|
+!i113 0
+R7
+R1
+n@branch@comp
+vdecoder
+Z8 !s110 1576736431
+!i10b 1
+!s100 3mk=lV]`KMNg6ABCS]TR@1
+IYDoi_<C[]mK2ihLFOS1nn3
+R3
+R4
+w1576729796
+8C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/decoder.v
+FC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/decoder.v
+L0 1
+R5
+r1
+!s85 0
+31
+Z9 !s108 1576736431.000000
+!s107 C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/decoder.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/decoder.v|
+!i113 0
+R7
+R1
+vDMEM
+Z10 !s110 1576736428
+!i10b 1
+!s100 0Ij?a[G9eZ`BdSX>Vn9`<3
+IZZL0@ioaX=CWWco1ldA?D0
+R3
+R4
+w1576687370
+8C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/DMEM.v
+FC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/DMEM.v
+L0 1
+R5
+r1
+!s85 0
+31
+Z11 !s108 1576736428.000000
+!s107 C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/DMEM.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/DMEM.v|
+!i113 0
+R7
+R1
+n@d@m@e@m
+vIMEM
+R8
+!i10b 1
+!s100 eU_>20n2N5ih;8IVG@U3M0
+IfJRBL4cHSicI8N2IR4=3X3
+R3
+R4
+w1575971776
+8C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/IMEM/IMEM.v
+FC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/IMEM/IMEM.v
+L0 7
+R5
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/IMEM/IMEM.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/IMEM/IMEM.v|
+!i113 0
+R7
+R1
+n@i@m@e@m
+vImmGen
+R10
+!i10b 1
+!s100 @jgNi[<_KLW]NXm3j4FWe3
+IX@3VDkIm>XMZaSjNjOo[n1
+R3
+R4
+w1573260719
+8C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/ImmGen.v
+FC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/ImmGen.v
+L0 1
+R5
+r1
+!s85 0
+31
+R11
+!s107 C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/ImmGen.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/ImmGen.v|
+!i113 0
+R7
+R1
+n@imm@gen
+vjump_control
+Z12 !s110 1576736429
+!i10b 1
+!s100 `D3[>cIib<YeS4YfoRNE[1
+IaE=k9ZZEV5>MPSJZjR;IV3
+R3
+R4
+w1576717288
+8C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/jump_control.v
+FC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/jump_control.v
+L0 1
+R5
+r1
+!s85 0
+31
+R11
+!s107 C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/jump_control.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/jump_control.v|
+!i113 0
+R7
+R1
+vopt_mux
+R12
+!i10b 1
+!s100 JOng5`f5i9?7>9M0XcBQS2
+I`?bITXT5W:?kjT[zcUl2g3
+R3
+R4
+w1576134615
+8C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/opt_mux.v
+FC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/opt_mux.v
+L0 1
+R5
+r1
+!s85 0
+31
+Z13 !s108 1576736429.000000
+!s107 C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/opt_mux.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/opt_mux.v|
+!i113 0
+R7
+R1
+vpc
+R12
+!i10b 1
+!s100 B1Cm@Z<`0mGKT?QL2?ZVU0
+I]`h3a`Z2Dk2MeH:Xi<Pzh2
+R3
+R4
+w1576687103
+8C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/pc.v
+FC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/pc.v
+L0 2
+R5
+r1
+!s85 0
+31
+R13
+!s107 C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/pc.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/pc.v|
+!i113 0
+R7
+R1
+vpc_mux
+R12
+!i10b 1
+!s100 YgJSaal@n2M53WmifoM@g1
+IlnAYe6jmA3g6TcE?>4mFa1
+R3
+R4
+w1576731482
+8C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/pc_mux.v
+FC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/pc_mux.v
+L0 2
+R5
+r1
+!s85 0
+31
+R13
+!s107 C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/pc_mux.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/pc_mux.v|
+!i113 0
+R7
+R1
+vreg_decoder
+R12
+!i10b 1
+!s100 FagTPBTWAO[>N2V7=L3k01
+IL@eEAH;05jnMIAO_kaK]B2
+R3
+R4
+w1576139573
+8C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/reg_decoder.v
+FC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/reg_decoder.v
+L0 1
+R5
+r1
+!s85 0
+31
+R13
+!s107 C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/reg_decoder.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/reg_decoder.v|
+!i113 0
+R7
+R1
+vregfile
+R12
+!i10b 1
+!s100 ]3Z2=1n8[P1Do6f_8?L4X0
+IEWSG?X`e>YVXi=L:KGHod1
+R3
+R4
+w1573441105
+8C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/regfile32x32.v
+FC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/regfile32x32.v
+L0 4
+R5
+r1
+!s85 0
+31
+R13
+!s107 C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/regfile32x32.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/regfile32x32.v|
+!i113 0
+R7
+R1
+vshiftRegD
+R12
+!i10b 1
+!s100 6jgBOY?nMiICDPPL:Wcb]1
+I7@cXhF;f>G_078ao:T=An3
+R3
+R4
+w1576730280
+8C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/shiftRegD.v
+FC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/shiftRegD.v
+L0 1
+R5
+r1
+!s85 0
+31
+R13
+!s107 C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/shiftRegD.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/shiftRegD.v|
+!i113 0
+R7
+R1
+nshift@reg@d
+vshiftRegE
+R12
+!i10b 1
+!s100 8OXAhh@M^l0>Ba=g1MGl;3
+IGmZ=IjTbO@mL<:DfnnYmU1
+R3
+R4
+w1575971340
+8C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/shiftRegE.v
+FC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/shiftRegE.v
+L0 1
+R5
+r1
+!s85 0
+31
+R13
+!s107 C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/shiftRegE.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/shiftRegE.v|
+!i113 0
+R7
+R1
+nshift@reg@e
+vshiftRegF
+R2
+!i10b 1
+!s100 DJARhl:>CS=M9^[8Pbz0C3
+IJH<IUPQ[W7X;9DdkE06Jo2
+R3
+R4
+w1576726376
+8C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/shiftRegF.v
+FC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/shiftRegF.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/shiftRegF.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/shiftRegF.v|
+!i113 0
+R7
+R1
+nshift@reg@f
+vshiftRegW
+R2
+!i10b 1
+!s100 a`kF@DPNMahkNmo0Z0mn^3
+ImYVTmMFTR`89A4<1fN_822
+R3
+R4
+w1575971367
+8C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/shiftRegW.v
+FC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/shiftRegW.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/shiftRegW.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/shiftRegW.v|
+!i113 0
+R7
+R1
+nshift@reg@w
+vstall_handle_unit
+R2
+!i10b 1
+!s100 B1:B98ee<DOfK`6aK4b:H1
+I4ITGkDzj3O]bZNfjV]5SZ3
+R3
+R4
+w1576725980
+8C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/stall_unit.v
+FC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/stall_unit.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/stall_unit.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/stall_unit.v|
+!i113 0
+R7
+R1
+vtestbench
+R2
+!i10b 1
+!s100 S3jm1?=XG6HfUJ5l8cf`]0
+IfSjA>I>I1ajg6nIefh4LY0
+R3
+R4
+w1573380879
+8C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/testbench.v
+FC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/testbench.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/testbench.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/testbench.v|
+!i113 0
+R7
+R1
+vtop_module
+R2
+!i10b 1
+!s100 ll7fDW_^`O66nD3@Q=kCT2
+I6hX^KahoI>;XV<anIKbFJ1
+R3
+R4
+w1576732981
+8C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/top_module.v
+FC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/top_module.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/top_module.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/top_module.v|
+!i113 0
+R7
+R1
+vwbmux
+R2
+!i10b 1
+!s100 ij7Q23J=fEGQN87kEm[6@2
+ITS8_ga6QVoOaAg=Jh;J_Q1
+R3
+R4
+w1573214418
+8C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/wbmux.v
+FC:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/wbmux.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/wbmux.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/NGUYEN DUY LINH/Desktop/CS_Projects/RISC-V/wbmux.v|
+!i113 0
+R7
+R1
