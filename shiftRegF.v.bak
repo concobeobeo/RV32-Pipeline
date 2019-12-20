@@ -8,13 +8,19 @@ output reg [31:0] outIn,
 output reg [31:0] outPC);
 
 always @(posedge clk) begin
-if (bubble==1 || clear ==1) begin
-	outIn = 0;
-	outPC = 0;
+if (!bubble) begin
+	if ( clear == 1) begin
+		outIn = 0;
+		outPC = 0;
+	end
+	else begin
+		outIn = instr;
+		outPC = pc;
+	end
 end
-else begin
-	outIn = instr;
-	outPC = pc;
+if ( clear == 1) begin
+		outIn = 0;
+		outPC = 0;
 end
 end
 

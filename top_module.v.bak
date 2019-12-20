@@ -14,8 +14,8 @@ wire [31:0] branch_target;
 wire [31:0] jump_target;
 wire miss_predict;
 wire jump_sel;
-wire bubble;
-wire flushw;
+wire bubbleF, bubbleD;
+wire flushD, flushF, flush;
 wire stall_lw, stall_j;
 wire not_update_pc;
 // Tin hieu tu khoi control toi cac khoi con lai
@@ -48,7 +48,7 @@ IMEM	InstrMem(.inst(instrF), .PC(pc_out));
 
 // DECODING STAGE
 
-shiftRegF end_fetching(.instr(instrF),.pc(pc_out),.bubble(bubble),.clear(flushw),.clk(clk),.outIn(instrD),.outPC(pcD));
+shiftRegF end_fetching(.instr(instrF),.pc(pc_out),.bubble(bubbleD),.clear(flush),.clk(clk),.outIn(instrD),.outPC(pcD));
 
 decoder bigDecoder(.instr(instrD), .stall(stall_lw), .sw_sel(sw_sel), .branch_dhazard(branch_dhazardD), .opA(opAD), .opB(opBD), .data_out(ctrl_out));
 
@@ -64,23 +64,23 @@ reg_decoder regDecode(.instr(instrD), .rd(rd), .rs1(rs1), .rs2(rs2));
 regfile RegFile(.clk(clk), .reset(), .write(reg_writeW), .wrAddrD(rdW), .rdAddrA(rs1), 
 		.rdAddrB(rs2), .wrDataD(wb_outW), .rdDataA(rs1D), .rdDataB(rs2D));
 
-wbmux	RS2_MUX(.out(rs2_mux_out), .in0(rs2D), .in1(alu_out), .in2(alu_outM), .sel(sw_sel));
+wbmux	RS2_MUX(.out(rs2_mux_out), .in0(rs2D), .in1(alu_out), .in2(alu_outM), .in3(wb_out), .sel(sw_sel));
 
 ImmGen	ImmGen(.immSel(imm_sel), .instr(instrD), .imm(immD));
 
 jump_control jumpUnit(.rs1(rs1D), .imm(immD), .pc(pcD), .instr(instrD), 
 			.jmp_addr(jump_target), .jmp_sel(jump_sel), .j_stall(stall_j));
 
-stall_handle_unit stallUnit( .stall_lw(stall_lw), .stall_j(stall_j), .clock(clk), .ff_stop_update(bubble), .pc_stop_update(not_update_pc));
+stall_handle_unit stallUnit( .stall_lw(stall_lw), .stall_j(stall_j), .clock(clk), .ff_stop_updateF(flush) /*nop*/, .ff_stop_updateD(bubbleD)/*stall*/,.pc_stop_update(not_update_pc));
 
 // EXECUTING STAGE  
 
 shiftRegD  end_decoding( .instr(instrD), .pc(pcD), .rs1(rs1D), .rs2(rs2D), .rs2_mem(rs2_mux_out), 
 			.imm(immD), .opA(opAD), .opB(opBD), .rd(rd), 
 			.ALUsel(aluopD), .WBsel(wbmux_selD), .branch_dhazard(branch_dhazardD), .RegWEn(reg_writeD), 
-			.memRW(dmem_selD), .clear(flushw), .clk(clk), .outIn(instrE),
+			.memRW(dmem_selD), .bubble(bubbleD), .clear(flush), .clk(clk), .outIn(instrE),
 			.outPC(pcE), .outRs1(rs1E), .outALUsel(aluopE),
-			.outRs2(rs2E), outRs2_mem(rs2_memE), .outOpA(opAE), .outOpB(opBE), 
+			.outRs2(rs2E), .outRs2_mem(rs2_memE), .outOpA(opAE), .outOpB(opBE), 
 			.outWBsel(wbmux_selE), .outBranch_dhazard(branch_dhazardE), .outRegWEn(reg_writeE), 
 			.outMemRW(dmem_selE), .outRd(rdE), .outImm(immE)); 
 
@@ -90,7 +90,7 @@ opt_mux	ALUmux2(.op0(rs2E), .op1(immE), .op2(alu_outM), .op3(wb_outW), .op_sel(o
 
 ALU	ALU(.alu_sel(aluopE), .dataA(alumux1_out), .dataB(alumux2_out), .alu_out(alu_out));
 
-branch_unit branch_check( .rs1(rs1E), .rs2(rs2E), .instr(instrE), .address(alu_out), .alu_fb(alu_outM), .branch_dhazard(branch_dhazardE), .clk(clk), .flush(flushw), 
+branch_unit branch_check( .rs1(rs1E), .rs2(rs2E), .instr(instrE), .address(alu_out), .alu_fb(alu_outM), .branch_dhazard(branch_dhazardE), .clk(clk), .flushF(flush), .flushD(flushD), 
 	      .miss_predict(miss_predict), .target(branch_target));
 
 // MEMORY STAGE

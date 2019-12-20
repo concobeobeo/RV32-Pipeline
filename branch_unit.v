@@ -6,7 +6,8 @@ module branch_unit(
 	input [31:0] alu_fb,
 	input [1:0] branch_dhazard,
 	input clk,
-	output	reg flush,
+	output	reg flushF,
+	output	reg flushD,
 	output  reg miss_predict,
 	output  reg [31:0] target);
 	
@@ -37,7 +38,8 @@ begin
 			begin
 			target = address;
 			miss_predict = 1;
-			flush = 1;
+			flushF = 1;
+			flushD = 1;
 			end
 		end
 			else if (instr[14:12] == 3'b001) // Branch Not Equal
@@ -46,7 +48,8 @@ begin
 			begin
 			target = address;
 			miss_predict = 1;
-			flush = 1;
+			flushF = 1;
+			flushD = 1;
 			end
 		end
 		else if (instr[14:12] == 3'b100) // Branch Less Than
@@ -55,7 +58,8 @@ begin
 			begin
 			target = address;
 			miss_predict = 1;
-			flush = 1;
+			flushF = 1;
+			flushD = 1;
 			end
 		end
 		else if (instr[14:12] == 3'b101) // Branch Less Than Unsigned
@@ -64,12 +68,14 @@ begin
 			begin
 			target = address;
 			miss_predict = 1;
-			flush = 1;
+			flushF = 1;
+			flushD = 1;
 			end
 		end
 		else begin
 			miss_predict = 0;
-			flush = 0;
+			flushF = 0;
+			flushD = 0;
 		end
 		
 	end	
@@ -80,7 +86,8 @@ begin
 			begin
 			target = address;
 			miss_predict = 1;
-			flush = 1;
+			flushF = 1;
+			flushD = 1;
 			end
 		end
 			else if (instr[14:12] == 3'b001) // Branch Not Equal
@@ -89,7 +96,8 @@ begin
 			begin
 			target = address;
 			miss_predict = 1;
-			flush = 1;
+			flushF = 1;
+			flushD = 1;
 			end
 		end
 		else if (instr[14:12] == 3'b100) // Branch Less Than
@@ -98,7 +106,8 @@ begin
 			begin
 			target = address;
 			miss_predict = 1;
-			flush = 1;
+			flushF = 1;
+			flushD = 1;
 			end
 		end
 		else if (instr[14:12] == 3'b101) // Branch Less Than Unsigned
@@ -107,12 +116,14 @@ begin
 			begin
 			target = address;
 			miss_predict = 1;
-			flush = 1;
+			flushF = 1;
+			flushD = 1;
 			end
 		end
 		else begin
 			miss_predict = 0;
-			flush = 0;
+			flushF = 0;
+			flushD = 0;
 		end
 	end	
 	else if (branch_dhazard == 2) begin
@@ -122,7 +133,8 @@ begin
 			begin
 			target = address;
 			miss_predict = 1;
-			flush = 1;
+			flushF = 1;
+			flushD = 1;
 			end
 		end
 			else if (instr[14:12] == 3'b001) // Branch Not Equal
@@ -131,7 +143,8 @@ begin
 			begin
 			target = address;
 			miss_predict = 1;
-			flush = 1;
+			flushF = 1;
+			flushD = 1;
 			end
 		end
 		else if (instr[14:12] == 3'b100) // Branch Less Than
@@ -140,7 +153,8 @@ begin
 			begin
 			target = address;
 			miss_predict = 1;
-			flush = 1;
+			flushF = 1;
+			flushD = 1;
 			end
 		end
 		else if (instr[14:12] == 3'b101) // Branch Less Than Unsigned
@@ -149,12 +163,14 @@ begin
 			begin
 			target = address;
 			miss_predict = 1;
-			flush = 1;
+			flushF = 1;
+			flushD = 1;
 			end
 		end
 		else begin
 			miss_predict = 0;
-			flush = 0;
+			flushF = 0;
+			flushD = 0;
 		end
 	end
 
@@ -162,13 +178,18 @@ end
 else begin
 	target = 0;
 	miss_predict = 0;
-	last_flush =flush;
-	flush = 0;
+	last_flush = flushF;
+	flushF = 0;
+	flushD = 0;
 end 
 end
 always @(negedge clk) 
 begin
-	if (last_flush == 1 && flush == 1) flush = 0; 
-	last_flush = flush;
+	if (last_flush == 1 && flushF == 1) 
+	begin
+		flushF = 0; 
+		flushD = 0;
+	end 
+	last_flush = flushF;
 end
 endmodule 

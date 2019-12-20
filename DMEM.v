@@ -7,8 +7,8 @@ input MemRW;
 
 reg [7:0] datafile [0:1023];
 
-/*initial begin
-	datafile[40]<=8'h00;
+initial begin
+	datafile[40]<=8'h05;
 	datafile[41]<=8'h00;
 	datafile[42]<=8'h00;
 	datafile[43]<=8'h00;
@@ -48,7 +48,7 @@ reg [7:0] datafile [0:1023];
 	datafile[77]<=8'h00;
 	datafile[78]<=8'h00;
 	datafile[79]<=8'h00;
-end */
+end 
 	
 	assign DataR[7:0] = datafile[Addr];
 	assign DataR[15:8] = datafile[Addr+1];

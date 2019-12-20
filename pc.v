@@ -6,7 +6,7 @@ input not_update_pc;
 output reg [31:0] out;
 reg temp = 0;
 
-reg last_pc;
+reg [31:0] last_pc;
 
 always @(posedge clk) begin
 	if (temp == 0) begin

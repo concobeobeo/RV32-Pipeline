@@ -13,6 +13,7 @@ input [1:0] WBsel,
 input [1:0] branch_dhazard,
 input RegWEn,
 input memRW,
+input bubble,
 input clear,
 input clk,
 output reg [31:0] outIn,
@@ -32,6 +33,7 @@ output reg [31:0] outImm
 );
 
 always @(posedge clk) begin
+if (!bubble) begin
 if (clear) begin
 	outIn = 0;
 	outPC = 0;
@@ -63,6 +65,7 @@ else begin
 	outImm = imm;
 	outALUsel = ALUsel;
 	outBranch_dhazard = branch_dhazard;
+end
 end
 end
 
